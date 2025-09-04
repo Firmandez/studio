@@ -23,7 +23,7 @@ export default function Hero() {
         </p>
         <div className="mt-8">
           <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-            <Link href="#products">Explore Our Seedlings</Link>
+            <Link href="/products">Explore Our Seedlings</Link>
           </Button>
         </div>
       </div>

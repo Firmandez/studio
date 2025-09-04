@@ -1,13 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
 
 const products = [
   { name: "Tomato Seedling", description: "Juicy, ripe tomatoes waiting to grow.", image: "https://picsum.photos/400/300?random=1", hint: "tomato plant" },
   { name: "Basil Seedling", description: "Aromatic basil perfect for any dish.", image: "https://picsum.photos/400/300?random=2", hint: "basil plant" },
   { name: "Chili Pepper Seedling", description: "Spice up your life with homegrown chili.", image: "https://picsum.photos/400/300?random=3", hint: "chili plant" },
-  { name: "Lettuce Seedling", description: "Fresh, crisp lettuce for healthy salads.", image: "https://picsum.photos/400/300?random=4", hint: "lettuce patch" },
-  { name: "Cucumber Seedling", description: "Cool and refreshing cucumbers.", image: "https://picsum.photos/400/300?random=5", hint: "cucumber vine" },
-  { name: "Strawberry Plant", description: "Sweet, delicious strawberries.", image: "https://picsum.photos/400/300?random=6", hint: "strawberry plant" },
 ];
 
 export default function Products() {
@@ -19,7 +19,7 @@ export default function Products() {
             Our Fresh Seedlings
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Choose from our carefully nurtured selection of seedlings to start your garden.
+            A sneak peek at some of our most popular seedlings.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -41,6 +41,14 @@ export default function Products() {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+            <Button asChild size="lg">
+                <Link href="/products">
+                    View All Products
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+            </Button>
         </div>
       </div>
     </section>
