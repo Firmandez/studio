@@ -1,5 +1,7 @@
 import { Leaf } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import SahidTaniLogo from "../app/img/SahidTaniLogo.png"
 
 export default function Footer() {
   return (
@@ -7,7 +9,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
-            <Leaf className="h-6 w-6 text-primary" />
+            {/* <Leaf className="h-6 w-6 text-primary" /> */}
+            <Image src={SahidTaniLogo} alt="Sahid Tani Logo" width={100} height={100} className="h-10 w-10 text-primary"/>
             <span className="text-xl font-bold font-headline text-foreground">
               Sahid Tani
             </span>

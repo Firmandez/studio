@@ -5,9 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { ArrowRight } from "lucide-react";
 
 const products = [
-  { name: "Tomato Seedling", description: "Juicy, ripe tomatoes waiting to grow.", image: "https://picsum.photos/400/300?random=1", hint: "tomato plant" },
-  { name: "Basil Seedling", description: "Aromatic basil perfect for any dish.", image: "https://picsum.photos/400/300?random=2", hint: "basil plant" },
-  { name: "Chili Pepper Seedling", description: "Spice up your life with homegrown chili.", image: "https://picsum.photos/400/300?random=3", hint: "chili plant" },
+  { name: "Alpukat", description: "Juicy, ripe tomatoes waiting to grow.", image: "https://picsum.photos/400/300?random=1", hint: "tomato plant" },
+  { name: "Anggur", description: "Aromatic basil perfect for any dish.", image: "https://picsum.photos/400/300?random=2", hint: "basil plant" },
+  { name: "Apel", description: "Spice up your life with homegrown chili.", image: "https://picsum.photos/400/300?random=3", hint: "chili plant" },
 ];
 
 export default function Products() {

@@ -20,10 +20,9 @@ import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(500),
+  name: z.string().min(2, { message: "Nama setidaknya memiliki 2 karakter." }),
+  subject: z.string().min(5, { message: "Subjek harus memiliki setidaknya 5 karakter." }),
+  message: z.string().min(10, { message: "Pesan harus memiliki minimal 10 karakter & maksimal 500 karakter." }).max(500),
 });
 
 export default function Contact() {
@@ -33,7 +32,6 @@ export default function Contact() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      email: "",
       subject: "",
       message: "",
     },
@@ -47,8 +45,8 @@ export default function Contact() {
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you shortly.",
+      title: "Pesan Terkirim!",
+      description: "Terimakasih sudah menghubungi kami. Akan kami respon secepatnya",
     });
 
     form.reset();
@@ -59,37 +57,44 @@ export default function Contact() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-headline font-bold text-foreground md:text-5xl">
-            Get in Touch
+            Kontak Kami
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Have a question or a special request? We'd love to hear from you.
+            Memiliki pertanyaan atau permintaan khusus? Hubungi kami!
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
           <Card className="shadow-lg">
             <CardHeader>
-                <CardTitle className="text-2xl font-headline">Contact Information</CardTitle>
+                <CardTitle className="text-2xl font-headline">Informasi Kontak</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6 text-lg">
                 <div className="flex items-start gap-4">
                     <MapPin className="h-6 w-6 mt-1 text-primary"/>
-                    <span>123 Green Lane, Plantville, PV 45678</span>
+                    <a 
+                      href= "https://maps.app.goo.gl/4SdYDw1ZVppPawVh9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors cursor-pointer"
+                    >
+                    Jl. Plongkowati No.7, Tegalrejo, Kec. Argomulyo, Kota Salatiga, Jawa Tengah
+                    </a>
                 </div>
                 <div className="flex items-center gap-4">
                     <Phone className="h-6 w-6 text-primary"/>
-                    <a href="tel:+1234567890" className="hover:text-primary transition-colors">(123) 456-7890</a>
+                    <a href="https://wa.me/6283836927824" className="hover:text-primary transition-colors">(+62) 838-3692-7824</a>
                 </div>
                 <div className="flex items-center gap-4">
                     <Mail className="h-6 w-6 text-primary"/>
-                    <a href="mailto:hello@sahidtani.com" className="hover:text-primary transition-colors">hello@sahidtani.com</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@sahidtani.com" className="hover:text-primary transition-colors">hello@sahidtani.com</a>
                 </div>
             </CardContent>
           </Card>
           
           <Card className="shadow-lg">
              <CardHeader>
-                <CardTitle className="text-2xl font-headline">Send us a Message</CardTitle>
+                <CardTitle className="text-2xl font-headline">Kirim Kami Sebuah Pesan</CardTitle>
             </CardHeader>
             <CardContent>
               <Form {...form}>
@@ -99,22 +104,9 @@ export default function Contact() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name</FormLabel>
+                        <FormLabel>Nama Lengkap</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email Address</FormLabel>
-                        <FormControl>
-                          <Input placeholder="you@example.com" {...field} />
+                          <Input placeholder="Alif" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -125,9 +117,9 @@ export default function Contact() {
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Subject</FormLabel>
+                        <FormLabel>Alamat</FormLabel>
                         <FormControl>
-                          <Input placeholder="Question about seedlings" {...field} />
+                          <Input placeholder="Jl. Plongkowati No.7, Tegalrejo, Kec. Argomulyo, Kota Salatiga, Jawa Tengah" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -138,16 +130,16 @@ export default function Contact() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Your Message</FormLabel>
+                        <FormLabel>Pesan</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Tell us how we can help..." {...field} rows={5}/>
+                          <Textarea placeholder="Beritahu apa yang bisa kami bantu..." {...field} rows={5}/>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
                   <Button type="submit" className="w-full" size="lg" disabled={form.formState.isSubmitting}>
-                    {form.formState.isSubmitting ? 'Sending...' : <>Send Message <Send className="ml-2 h-4 w-4"/></>}
+                    {form.formState.isSubmitting ? 'Sending...' : <>Kirim Pesan <Send className="ml-2 h-4 w-4"/></>}
                   </Button>
                 </form>
               </Form>

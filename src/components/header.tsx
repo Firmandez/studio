@@ -6,12 +6,15 @@ import { Leaf, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import SahidTaniLogo from "../app/img/SahidTaniLogo.png"
+
 
 const navLinks = [
-  { href: "/#about", label: "About" },
-  { href: "/products", label: "Products" },
-  { href: "/#gallery", label: "Gallery" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/#about", label: "Tentang Kami" },
+  { href: "/products", label: "Produk" },
+  { href: "/#gallery", label: "Galeri" },
+  { href: "/#contact", label: "Kontak" },
 ];
 
 export default function Header() {
@@ -34,7 +37,8 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2" aria-label="Sahid Tani Home">
-          <Leaf className="h-8 w-8 text-primary" />
+          {/* <Leaf className="h-8 w-8 text-primary" /> */}
+          <Image src={SahidTaniLogo} alt="Sahid Tani Logo" width={100} height={100} className="h-10 w-10 text-primary"/>
           <span className="text-2xl font-bold font-headline text-foreground">
             Sahid Tani
           </span>
