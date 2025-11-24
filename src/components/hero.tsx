@@ -16,14 +16,14 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 max-w-4xl px-4">
         <h1 className="text-4xl font-headline font-bold drop-shadow-md md:text-6xl lg:text-7xl">
-          Nurturing Growth, From Our Farm to Your Home
+          Dari Kebun Kami untuk Kebun Anda
         </h1>
         <p className="mt-6 text-lg drop-shadow-sm md:text-xl">
-          Discover a wide variety of high-quality plant seedlings to bring your garden to life.
+          Temukan berbagai macam bibit tanaman berkualitas tinggi untuk menghidupkan taman Anda.
         </p>
         <div className="mt-8">
           <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-            <Link href="/products">Explore Our Seedlings</Link>
+            <Link href="/products">Lihat Bibit Kami</Link>
           </Button>
         </div>
       </div>

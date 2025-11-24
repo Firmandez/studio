@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Leaf, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import SahidTaniLogo from "../app/img/SahidTaniLogo.png"
@@ -67,6 +67,7 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] bg-background">
+              <SheetTitle className="sr-only">Menu</SheetTitle>
               <div className="flex flex-col p-6">
                 <div className="mb-8 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2" aria-label="Sahid Tani Home">

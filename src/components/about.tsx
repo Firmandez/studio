@@ -5,18 +5,18 @@ import { Card, CardContent } from "@/components/ui/card";
 const values = [
   {
     icon: Sprout,
-    title: "Quality Growth",
-    description: "We cultivate every seedling with expert care to ensure robust and healthy growth from the start.",
+    title: "Tumbuh dengan Kualitas",
+    description: "Dari setiap bibit yang kami tanam, kami berkomitmen menghadirkan pertumbuhan yang tangguh dan sehat melalui sentuhan ahli di setiap langkah perawatan.",
   },
   {
     icon: Leaf,
-    title: "Sustainable Practices",
-    description: "Our farming methods are eco-friendly, promoting a healthier planet for future generations.",
+    title: "Menanam untuk Masa Depan",
+    description: "Setiap langkah pertanian kami dirancang agar selaras dengan alam, menjaga kelestarian bumi untuk generasi yang akan datang.",
   },
   {
     icon: Heart,
-    title: "Passionate Support",
-    description: "We're dedicated to helping you succeed, offering guidance and support for your gardening journey.",
+    title: "Dukungan Sepenuh Hati Melayani",
+    description: "Dukungan kami tidak hanya sekadar layanan kami menjadi mitra yang setia dalam membantu Anda tumbuh dan berhasil di dunia tanaman.",
   },
 ]
 
@@ -27,13 +27,13 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <div className="space-y-6">
             <h2 className="text-4xl font-headline font-bold text-foreground md:text-5xl">
-              Our Story of Growth
+              Cerita Perkebunan Kami
             </h2>
             <p className="text-lg text-muted-foreground">
-              Sahid Tani was born from a passion for nature and a desire to make gardening accessible to everyone. We believe that nurturing a plant is a rewarding experience, and our mission is to provide the highest quality seedlings to help you create the garden of your dreams.
+              Sahid Tani lahir dari kecintaan terhadap alam dan keinginan untuk membuat berkebun menjadi lebih mudah diakses oleh semua orang. Kami percaya bahwa merawat tanaman adalah pengalaman yang memuaskan, dan misi kami adalah menyediakan bibit berkualitas tinggi untuk membantu Anda menciptakan taman impian Anda.
             </p>
             <p className="text-lg text-muted-foreground">
-              From humble beginnings, we have grown into a trusted source for gardeners, landscapers, and plant enthusiasts, all while staying true to our core values.
+            Berawal dari langkah sederhana, kami telah tumbuh menjadi mitra terpercaya bagi para pekebun, perancang lanskap, dan penggemar tanaman, tanpa meninggalkan nilai-nilai dasar yang kami junjung.
             </p>
           </div>
           <div>
@@ -49,7 +49,7 @@ export default function About() {
         </div>
         <div className="mt-20">
           <h3 className="text-3xl font-headline font-bold text-center text-foreground mb-12">
-            Our Core Values
+            Nilai-Nilai Utama Kami
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value) => (

@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, XCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -30,6 +30,7 @@ export default function Contact() {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    mode: "onChange", // Enable real-time validation
     defaultValues: {
       name: "",
       subject: "",
@@ -37,18 +38,40 @@ export default function Contact() {
     },
   });
 
+  const messageLength = form.watch("message")?.length || 0;
+  const maxMessageLength = 500;
+
+  // Function to check if field is valid
+  const isFieldValid = (fieldName: keyof z.infer<typeof formSchema>) => {
+    const fieldState = form.getFieldState(fieldName);
+    return !fieldState.error && fieldState.isDirty && form.getValues(fieldName);
+  };
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real app, you'd send this to a backend.
-    console.log(values);
+    // Format pesan untuk WhatsApp
+    const whatsappMessage = `*Pesan Baru dari Website*\n\n` +
+                           `*Nama:* ${values.name}\n` +
+                           `*Alamat:* ${values.subject}\n` +
+                           `*Pesan:*\n${values.message}`;
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Encode pesan untuk URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Nomor WhatsApp (format: kode negara + nomor tanpa +, -, atau spasi)
+    const whatsappNumber = "6283836927824";
+    
+    // Buat URL WhatsApp
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    // Buka WhatsApp di tab baru
+    window.open(whatsappUrl, '_blank');
 
     toast({
-      title: "Pesan Terkirim!",
-      description: "Terimakasih sudah menghubungi kami. Akan kami respon secepatnya",
+      title: "Membuka WhatsApp!",
+      description: "Anda akan diarahkan ke WhatsApp untuk mengirim pesan.",
     });
 
+    // Reset form setelah membuka WhatsApp
     form.reset();
   }
 
@@ -65,32 +88,46 @@ export default function Contact() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-          <Card className="shadow-lg">
-            <CardHeader>
-                <CardTitle className="text-2xl font-headline">Informasi Kontak</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6 text-lg">
-                <div className="flex items-start gap-4">
-                    <MapPin className="h-6 w-6 mt-1 text-primary"/>
-                    <a 
-                      href= "https://maps.app.goo.gl/4SdYDw1ZVppPawVh9"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-primary transition-colors cursor-pointer"
-                    >
-                    Jl. Plongkowati No.7, Tegalrejo, Kec. Argomulyo, Kota Salatiga, Jawa Tengah
-                    </a>
-                </div>
-                <div className="flex items-center gap-4">
-                    <Phone className="h-6 w-6 text-primary"/>
-                    <a href="https://wa.me/6283836927824" className="hover:text-primary transition-colors">(+62) 838-3692-7824</a>
-                </div>
-                <div className="flex items-center gap-4">
-                    <Mail className="h-6 w-6 text-primary"/>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@sahidtani.com" className="hover:text-primary transition-colors">hello@sahidtani.com</a>
-                </div>
-            </CardContent>
-          </Card>
+          <div className="space-y-6">
+            <Card className="shadow-lg">
+              <CardHeader>
+                  <CardTitle className="text-2xl font-headline">Informasi Kontak</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-lg">
+                  <div className="flex items-center gap-4">
+                      <Phone className="h-6 w-6 text-primary"/>
+                      <a href="https://wa.me/6283836927824" className="hover:text-primary transition-colors">(+62) 838-3692-7824</a>
+                  </div>
+                  <div className="flex items-center gap-4">
+                      <Mail className="h-6 w-6 text-primary"/>
+                      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@sahidtani.com" className="hover:text-primary transition-colors">hello@sahidtani.com</a>
+                  </div>
+              </CardContent>
+            </Card>
+
+            {/* Google Maps Embed */}
+            <Card className="shadow-lg overflow-hidden">
+              <CardHeader>
+                <CardTitle className="text-2xl font-headline flex items-center gap-2">
+                <MapPin className="h-6 w-6 text-primary"/>
+                  Lokasi Kami
+                  </CardTitle>
+              </CardHeader>
+              <CardContent className="p-0">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1624.437966844424!2d110.50494684765759!3d-7.342907875940861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a79cc11934a49%3A0x59def18ab53e0353!2sSahid%20Tani!5e0!3m2!1sid!2sid!4v1761538620229!5m2!1sid!2sid"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Lokasi Sahidtani"
+                  className="w-full"
+                />
+              </CardContent>
+            </Card>
+          </div>
           
           <Card className="shadow-lg">
              <CardHeader>
@@ -106,7 +143,15 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Nama Lengkap</FormLabel>
                         <FormControl>
-                          <Input placeholder="Alif" {...field} />
+                          <div className="relative">
+                            <Input placeholder="John Doe" {...field} className="pr-10" />
+                            {isFieldValid("name") && (
+                              <CheckCircle2 className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-green-500" />
+                            )}
+                            {form.getFieldState("name").error && form.getFieldState("name").isDirty && (
+                              <XCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-red-500" />
+                            )}
+                          </div>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -119,7 +164,15 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Alamat</FormLabel>
                         <FormControl>
-                          <Input placeholder="Jl. Plongkowati No.7, Tegalrejo, Kec. Argomulyo, Kota Salatiga, Jawa Tengah" {...field} />
+                          <div className="relative">
+                            <Input placeholder="Nama Jalan, Kelurahan, Kecamatan, Kota, Provinsi" {...field} className="pr-10" />
+                            {isFieldValid("subject") && (
+                              <CheckCircle2 className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-green-500" />
+                            )}
+                            {form.getFieldState("subject").error && form.getFieldState("subject").isDirty && (
+                              <XCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-red-500" />
+                            )}
+                          </div>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -130,16 +183,26 @@ export default function Contact() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Pesan</FormLabel>
+                        <FormLabel className="flex justify-between items-center">
+                          <span>Pesan</span>
+                          <span className={`text-sm ${messageLength > maxMessageLength ? 'text-red-500' : messageLength > maxMessageLength * 0.9 ? 'text-orange-500' : 'text-muted-foreground'}`}>
+                            {messageLength}/{maxMessageLength}
+                          </span>
+                        </FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Beritahu apa yang bisa kami bantu..." {...field} rows={5}/>
+                          <div className="relative">
+                            <Textarea placeholder="Beritahu apa yang bisa kami bantu..." {...field} rows={5} className="resize-none"/>
+                            {isFieldValid("message") && (
+                              <CheckCircle2 className="absolute right-3 top-3 h-5 w-5 text-green-500" />
+                            )}
+                          </div>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
                   <Button type="submit" className="w-full" size="lg" disabled={form.formState.isSubmitting}>
-                    {form.formState.isSubmitting ? 'Sending...' : <>Kirim Pesan <Send className="ml-2 h-4 w-4"/></>}
+                    {form.formState.isSubmitting ? 'Mengirim...' : <>Kirim via WhatsApp <Send className="ml-2 h-4 w-4"/></>}
                   </Button>
                 </form>
               </Form>

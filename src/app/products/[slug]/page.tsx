@@ -72,9 +72,6 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                         ))}
                       </ul>
                     </div>
-                    <Button className="w-full mt-6">
-                      Tambah ke Keranjang
-                    </Button>
                   </CardContent>
                 </Card>
               ))}
