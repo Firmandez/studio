@@ -1,11 +1,11 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Image from "next/image"; // ✅ Gunakan Next.js Image
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, CheckCircle2 } from "lucide-react"; // ✅ Icon lebih bagus
 import { getProductVarieties } from "@/lib/products-data";
 
 export default function ProductDetailPage({ params }: { params: { slug: string } }) {
@@ -39,22 +39,28 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {productData.varieties.map((variety) => (
-                <Card key={variety.name} className="overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                  <CardHeader className="p-0">
-                    <Image
-                      src={variety.image}
-                      alt={variety.name}
-                      width={400}
-                      height={300}
-                      className="object-cover w-full h-56"
-                    />
+                <Card 
+                  key={variety.name} 
+                  className="overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+                >
+                  <CardHeader className="p-0 relative">
+                    {/* ✅ Gunakan next/image untuk optimasi */}
+                    <div className="relative w-full h-56">
+                      <Image
+                        src={variety.image}
+                        alt={variety.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
                   </CardHeader>
                   <CardContent className="p-6">
                     <div className="flex justify-between items-start mb-2">
                       <CardTitle className="text-2xl font-headline m-0 p-0 leading-tight">
                         {variety.name}
                       </CardTitle>
-                      <span className="text-l font-bold text-primary whitespace-nowrap ml-2">
+                      <span className="text-lg font-bold text-primary whitespace-nowrap ml-2">
                         {variety.price}
                       </span>
                     </div>
@@ -63,10 +69,14 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                     </CardDescription>
                     <div className="mt-4">
                       <h4 className="font-semibold text-sm mb-2">Keunggulan:</h4>
-                      <ul className="space-y-1">
+                      <ul className="space-y-2"> {/* ✅ Spacing lebih lega */}
                         {variety.features.map((feature, index) => (
-                          <li key={index} className="text-sm text-muted-foreground flex items-start">
-                            <span className="mr-2">•</span>
+                          <li 
+                            key={index} 
+                            className="text-sm text-muted-foreground flex items-start"
+                          >
+                            {/* ✅ Icon lebih menarik dari bullet biasa */}
+                            <CheckCircle2 className="mr-2 h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
                             <span>{feature}</span>
                           </li>
                         ))}

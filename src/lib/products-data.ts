@@ -31,7 +31,7 @@ export interface Product {
       slug: "alpukat",
       description: "Bibit alpukat unggul yang siap tanam, tumbuh cepat, dan cocok di berbagai iklim tropis. Hasil buah lembut dan gurih.", 
       price: "Mulai dari $4.50", 
-      image: "https://picsum.photos/400/300?random=1", 
+      image: "/img/Alpukat/Alpukat-Aligator.jpg",
       hint: "tanaman alpukat" 
     },
     { 
@@ -47,7 +47,7 @@ export interface Product {
       slug: "apel",
       description: "Bibit apel lokal yang cocok untuk dataran tinggi. Buahnya renyah, segar, dan kaya vitamin C.", 
       price: "Mulai dari $5.00", 
-      image: "https://picsum.photos/400/300?random=3", 
+      image: "/img/Apel/Apel-Futsa2.jpg", 
       hint: "tanaman apel" 
     },
     { 
@@ -55,7 +55,7 @@ export interface Product {
       slug: "durian",
       description: "Bibit durian berkualitas tinggi, tumbuh cepat, dan berbuah lebat.", 
       price: "Mulai dari $7.50", 
-      image: "https://picsum.photos/400/300?random=4", 
+      image: "/img/Durian/Bawor.jpg", 
       hint: "tanaman durian" 
     },
     { 
@@ -95,7 +95,7 @@ export interface Product {
       slug: "mangga",
       description: "Bibit mangga unggulan, cepat tumbuh dan berbuah lebat dengan aroma khas.", 
       price: "Mulai dari $3.50", 
-      image: "https://picsum.photos/400/300?random=9", 
+      image: "/img/Mangga/Miyazaki.jpg", 
       hint: "tanaman mangga" 
     },
     { 
@@ -111,7 +111,7 @@ export interface Product {
       slug: "miracle-fruit",
       description: "Bibit miracle fruit unik yang membuat makanan asam terasa manis. Cocok ditanam dalam pot.", 
       price: "Mulai dari $6.50", 
-      image: "https://picsum.photos/400/300?random=11", 
+      image: "/img/MiracleFruit/MiracleFruit.jpeg", 
       hint: "tanaman miracle fruit" 
     },
     { 
@@ -119,7 +119,7 @@ export interface Product {
       slug: "nanas",
       description: "Bibit nanas yang manis segar dan mudah tumbuh di berbagai kondisi tanah.", 
       price: "Mulai dari $2.99", 
-      image: "https://picsum.photos/400/300?random=12", 
+      image: "/img/Nanas/Medusa2.jpg", 
       hint: "tanaman nanas" 
     },
     { 
@@ -127,7 +127,7 @@ export interface Product {
       slug: "nangka",
       description: "Bibit nangka cepat berbuah, aroma harum dan daging buah tebal.", 
       price: "Mulai dari $4.25", 
-      image: "https://picsum.photos/400/300?random=13", 
+      image: "/img/Nangka/Madu.jpg", 
       hint: "tanaman nangka" 
     },
     { 
@@ -143,7 +143,7 @@ export interface Product {
       slug: "sawo",
       description: "Bibit sawo unggul, berbuah cepat dengan rasa manis legit dan tekstur lembut.", 
       price: "Mulai dari $3.75", 
-      image: "https://picsum.photos/400/300?random=15", 
+      image: "/img/Sawo/BlackSapote.jpg", 
       hint: "tanaman sawo" 
     },    
   ];
@@ -158,56 +158,56 @@ export interface Product {
           description: "Varietas alpukat dengan bentuk lonjong besar dan daging buah lembut seperti mentega. Populer karena rasanya yang gurih dan tekstur creamy.",
           price: "$5.50",
           features: ["Daging buah tebal", "Rasa creamy", "Cocok untuk jus", "Tahan penyakit"],
-          image: "https://picsum.photos/400/300?random=11"
+          image: "/img/Alpukat/Alpukat-Aligator.jpg"
         },
         {
           name: "Alpukat Kendil",
           description: "Alpukat lokal berukuran jumbo dengan daging tebal dan rasa gurih khas. Cocok untuk konsumsi keluarga maupun dijual.",
           price: "$4.99",
           features: ["Ukuran buah besar", "Produktivitas tinggi", "Adaptasi baik", "Rasa gurih"],
-          image: "https://picsum.photos/400/300?random=12"
+          image: "/img/Alpukat/Alpukat-Kendil.jpg"
         },
         {
           name: "Alpukat Hass",
           description: "Varietas premium asal Meksiko dengan kulit kasar berwarna hitam keunguan saat matang. Dikenal memiliki rasa terbaik di dunia.",
           price: "$6.50",
           features: ["Kualitas ekspor", "Rasa premium", "Tahan lama", "Nutrisi tinggi"],
-          image: "https://picsum.photos/400/300?random=13"
+          image: "/img/Alpukat/Alpukat-hass.jpg"
         },
         {
           name: "Alpukat Miki",
           description: "Alpukat unggulan dengan ukuran jumbo dan daging buah yang sangat tebal. Tumbuh cepat dan mudah berbuah.",
           price: "$6.75",
           features: ["Ukuran jumbo", "Produktif", "Cepat berbuah", "Daging tebal"],
-          image: "https://picsum.photos/400/300?random=14"
+          image: "/img/Alpukat/Alpukat-Miki.jpg"
         },
         {
           name: "Alpukat Pluwang",
           description: "Varietas alpukat lokal unggul dengan tekstur lembut dan rasa manis gurih. Cocok untuk tabulampot dan mudah dirawat.",
           price: "$5.25",
           features: ["Cepat berbuah", "Rasa manis gurih", "Cocok di pot", "Tahan hama"],
-          image: "https://picsum.photos/400/300?random=15"
+          image: "/img/Alpukat/Alpukat-Pluwang.jpg"
         },
         {
           name: "Alpukat Red Vietnam",
           description: "Varietas langka dengan kulit buah merah keunguan dan rasa gurih lembut. Banyak dicari karena tampilannya unik.",
           price: "$7.50",
           features: ["Kulit merah keunguan", "Rasa gurih lembut", "Unik dan langka", "Nilai jual tinggi"],
-          image: "https://picsum.photos/400/300?random=16"
+          image: "/img/Alpukat/Alpukat-Red-Vietnam.jpg"
         },
         {
           name: "Alpukat Roro",
           description: "Varietas alpukat lokal unggulan hasil persilangan, dengan daging tebal dan rasa creamy. Cocok untuk konsumsi harian.",
           price: "$5.75",
           features: ["Rasa creamy", "Cepat berbuah", "Daging tebal", "Cocok di dataran rendah"],
-          image: "https://picsum.photos/400/300?random=17"
+          image: "/img/Alpukat/Alpukat-Roro"
         },
         {
           name: "Alpukat Wina",
           description: "Varietas alpukat favorit karena cepat berbuah dan rasa manis gurihnya. Cocok untuk pekarangan rumah.",
           price: "$5.25",
           features: ["Cepat berbuah", "Rasa manis gurih", "Produktivitas tinggi", "Tahan cuaca panas"],
-          image: "https://picsum.photos/400/300?random=18"
+          image: "/img/Alpukat/Alpukat-Wina"
         }        
       ]
     },
@@ -243,12 +243,12 @@ export interface Product {
       description: "Bibit apel yang cocok untuk dataran tinggi. Buahnya renyah, segar, dan kaya vitamin C.",
       varieties: [
         {
-          name: "Apel Futsu",
+          name: "Apel Futsa",
           description: "Varietas apel unggulan dengan rasa manis segar dan aroma khas. Cocok ditanam di dataran tinggi dengan hasil buah besar dan renyah.",
           price: "$4.50",
           features: ["Rasa manis segar", "Buah besar", "Produktif", "Cocok dataran tinggi"],
-          image: "https://picsum.photos/400/300?random=31"
-        }        
+          image: "/img/Apel/Apel-Futsa.jpg"
+        }, 
       ]
     },
     "durian": {
@@ -260,56 +260,56 @@ export interface Product {
           description: "Varietas durian unggulan asal Banyumas dengan ukuran buah besar, rasa manis legit, dan cepat berbuah. Cocok untuk budidaya maupun koleksi pribadi.",
           price: "$7.50",
           features: ["Buah besar", "Cepat berbuah", "Rasa manis legit", "Tahan penyakit"],
-          image: "https://picsum.photos/400/300?random=41"
+          image: "/img/Durian/Bawor.jpg"
         },
         {
           name: "Durian Duri Hitam",
           description: "Durian premium asal Malaysia dengan rasa lembut dan aroma khas. Dikenal sebagai salah satu varietas terbaik di dunia.",
           price: "$9.00",
           features: ["Rasa premium", "Daging lembut", "Aroma khas", "Nilai jual tinggi"],
-          image: "https://picsum.photos/400/300?random=42"
+          image: "/img/Durian/DuriHitam.jpg"
         },
         {
           name: "Durian Merah",
           description: "Durian khas Banyuwangi dengan warna daging merah jingga alami dan rasa manis gurih yang unik.",
           price: "$8.50",
           features: ["Daging merah alami", "Rasa unik", "Langka", "Aroma lembut"],
-          image: "https://picsum.photos/400/300?random=43"
+          image: "/img/Durian/Merah.jpg"
         },
         {
           name: "Durian Montong",
           description: "Durian asal Thailand yang populer karena ukurannya besar, biji kecil, dan daging tebal bertekstur lembut.",
           price: "$7.25",
           features: ["Daging tebal", "Biji kecil", "Ukuran besar", "Rasa manis lembut"],
-          image: "https://picsum.photos/400/300?random=44"
+          image: "/img/Durian/Montong.jpg"
         },
         {
           name: "Durian Musang King",
           description: "Varietas paling dicari di Asia Tenggara dengan cita rasa manis pahit seimbang dan tekstur sangat lembut.",
           price: "$9.25",
           features: ["Rasa manis pahit seimbang", "Daging lembut", "Kualitas ekspor", "Aroma kuat"],
-          image: "https://picsum.photos/400/300?random=45"
+          image: "/img/Durian/Musangking.jpg"
         },
         {
           name: "Durian Namlung",
           description: "Durian lokal unggulan dari Kalimantan Selatan dengan rasa manis gurih dan tekstur halus.",
           price: "$6.75",
           features: ["Asal Kalimantan", "Rasa manis gurih", "Tekstur halus", "Produktif"],
-          image: "https://picsum.photos/400/300?random=46"
+          image: "/img/Durian/Namlung.jpg"
         },
         {
           name: "Durian Pelangi",
           description: "Durian langka dengan daging berwarna gradasi kuning ke merah muda, rasa manis legit, dan aroma khas ringan.",
           price: "$8.75",
           features: ["Daging gradasi warna", "Rasa manis legit", "Langka", "Estetis"],
-          image: "https://picsum.photos/400/300?random=47"
+          image: "/img/Durian/Pelangi.jpg"
         },
         {
           name: "Durian Super Tembaga",
           description: "Varietas unggul dengan daging buah oranye keemasan, rasa manis lembut, dan kadar alkohol alami yang rendah.",
           price: "$8.00",
           features: ["Daging oranye keemasan", "Rasa manis lembut", "Biji kecil", "Aroma ringan"],
-          image: "https://picsum.photos/400/300?random=48"
+          image: "/img/Durian/SuperTembaga.jpg"
         }        
       ]
     },
@@ -557,7 +557,7 @@ export interface Product {
           description: "Mangga premium asal Jepang dengan rasa sangat manis, tekstur lembut, dan kualitas ekspor tinggi.",
           price: "$9.00",
           features: ["Kualitas ekspor", "Sangat manis", "Tekstur lembut", "Harga tinggi"],
-          image: "https://picsum.photos/400/300?random=99"
+          image: "/img/Mangga/Miyazaki.jpg"
         }        
       ]
     },
@@ -588,7 +588,7 @@ export interface Product {
         }        
       ]
     },
-    "miracle fruit": {
+    "miracle-fruit": {
       name: "Bibit Miracle Fruit",
       description: "Bibit miracle fruit unik yang membuat makanan asam terasa manis. Cocok ditanam dalam pot.",
       varieties: [
@@ -597,7 +597,7 @@ export interface Product {
           description: "Tanaman miracle fruit dengan warna hijau",
           price: "$4.00",
           features : ["Kompak", "Cocok indoor", "Low maintenance", "Cantik"],
-          image : "https://picsum.photos/400/300?random=101"
+          image : "/img/MiracleFruit/MiracleFruit.jpeg"
         }
       ]
     },
@@ -610,7 +610,7 @@ export interface Product {
           description: "Varietas nanas eksotis dengan bentuk mahkota menyerupai rambut Medusa. Daging buahnya manis dengan aroma yang kuat dan menyegarkan.",
           price: "$4.00",
           features: ["Rasa manis segar", "Aroma kuat", "Tekstur juicy", "Tampilan unik"],
-          image: "https://picsum.photos/400/300?random=101"
+          image: "/img/Nanas/Medusa.jpg"
         }        
       ]
     },
@@ -644,7 +644,7 @@ export interface Product {
           description: "Nangka unggulan dengan daging buah bertekstur renyah dan rasa manis seperti madu. Sering jadi favorit untuk dimakan langsung.",
           price: "$4.50",
           features: ["Rasa super manis", "Tekstur renyah", "Aroma wangi", "Favorit pasar"],
-          image: "https://picsum.photos/400/300?random=104"
+          image: "/img/Nangka/Madu.jpg"
         }
         
       ]
@@ -678,7 +678,7 @@ export interface Product {
           description: "Varietas sawo unik asal Meksiko dengan daging buah hitam lembut menyerupai puding cokelat. Rasanya manis lembut dan sering dijuluki 'chocolate pudding fruit'.",
           price: "$4.50",
           features: ["Daging hitam lembut", "Rasa manis khas", "Kaya vitamin C", "Unik dan eksotis"],
-          image: "https://picsum.photos/400/300?random=101"
+          image: "/img/Sawo/BlackSapote.jpg"
         },
         {
           name: "Sawo Mamey Sapote",
@@ -692,7 +692,7 @@ export interface Product {
           description: "Varietas lokal unggulan dengan buah besar, kulit halus, dan daging tebal berwarna cokelat muda. Cocok untuk konsumsi segar maupun dijual di pasar.",
           price: "$3.75",
           features: ["Ukuran jumbo", "Manis alami", "Produktif", "Daging tebal"],
-          image: "https://picsum.photos/400/300?random=103"
+          image: "/img/Sawo/Jumbo.jpg"
         }        
       ]
     }

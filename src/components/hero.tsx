@@ -6,9 +6,8 @@ export default function Hero() {
   return (
     <section className="relative h-[80vh] min-h-[500px] w-full flex items-center justify-center text-center text-white">
       <Image
-        src="https://picsum.photos/1920/1080"
+        src="/img/Aset/Kebun Sahid Tani.jpeg"
         alt="A lush green field of seedlings under the sun"
-        data-ai-hint="greenhouse seedlings"
         fill
         className="object-cover"
         priority

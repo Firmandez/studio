@@ -15,10 +15,10 @@ const values = [
   },
   {
     icon: Heart,
-    title: "Dukungan Sepenuh Hati Melayani",
-    description: "Dukungan kami tidak hanya sekadar layanan kami menjadi mitra yang setia dalam membantu Anda tumbuh dan berhasil di dunia tanaman.",
+    title: "Dukungan Sepenuh Hati",
+    description: "Dukungan kami tidak hanya sekadar layanan, kami menjadi mitra yang setia dalam membantu Anda tumbuh dan berhasil di dunia tanaman.",
   },
-]
+] as const;
 
 export default function About() {
   return (
@@ -33,33 +33,47 @@ export default function About() {
               Sahid Tani lahir dari kecintaan terhadap alam dan keinginan untuk membuat berkebun menjadi lebih mudah diakses oleh semua orang. Kami percaya bahwa merawat tanaman adalah pengalaman yang memuaskan, dan misi kami adalah menyediakan bibit berkualitas tinggi untuk membantu Anda menciptakan taman impian Anda.
             </p>
             <p className="text-lg text-muted-foreground">
-            Berawal dari langkah sederhana, kami telah tumbuh menjadi mitra terpercaya bagi para pekebun, perancang lanskap, dan penggemar tanaman, tanpa meninggalkan nilai-nilai dasar yang kami junjung.
+              Berawal dari langkah sederhana, kami telah tumbuh menjadi mitra terpercaya bagi para pekebun, perancang lanskap, dan penggemar tanaman, tanpa meninggalkan nilai-nilai dasar yang kami junjung.
             </p>
           </div>
-          <div>
+          
+          <div className="relative group">
             <Image
-              src="https://picsum.photos/600/700"
-              alt="Close-up of a person's hands holding a small seedling with soil"
-              data-ai-hint="hands seedling"
+              src="/img/Aset/PAK BOS.jpg"
+              alt="Pendiri Sahid Tani sedang memegang bibit tanaman"
               width={600}
               height={700}
-              className="rounded-xl shadow-lg object-cover"
+              className="rounded-xl shadow-lg object-cover w-full h-auto transition-transform duration-300 group-hover:scale-[1.02]"
+              priority
+              quality={90}
             />
           </div>
         </div>
+
+        {/* Nilai-Nilai Section */}
         <div className="mt-20">
           <h3 className="text-3xl font-headline font-bold text-center text-foreground mb-12">
             Nilai-Nilai Utama Kami
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value) => (
-              <Card key={value.title} className="text-center bg-card shadow-md hover:shadow-lg transition-shadow">
+            {values.map((value, index) => (
+              <Card 
+                key={value.title} 
+                className="text-center bg-card shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+                style={{ 
+                  animationDelay: `${index * 100}ms` //Stagger animation
+                }}
+              >
                 <CardContent className="p-8">
-                  <div className="mb-4 inline-flex items-center justify-center rounded-full bg-primary/20 p-4">
-                    <value.icon className="h-10 w-10 text-primary" />
+                  <div className="mb-4 inline-flex items-center justify-center rounded-full bg-primary/20 p-4 group-hover:bg-primary/30 transition-colors">
+                    <value.icon className="h-10 w-10 text-primary group-hover:scale-110 transition-transform" />
                   </div>
-                  <h4 className="text-2xl font-bold font-headline mb-2 text-card-foreground">{value.title}</h4>
-                  <p className="text-muted-foreground">{value.description}</p>
+                  <h4 className="text-2xl font-bold font-headline mb-2 text-card-foreground">
+                    {value.title}
+                  </h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {value.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
